@@ -1,0 +1,5 @@
+.vscode/
+.venv/
+target/
+
+./test-reuqest.py
