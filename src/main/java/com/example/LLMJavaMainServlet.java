@@ -8,8 +8,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import com.example.llm.OllamaLLMClient;
-import com.example.llm.response.Response;
-import com.example.llm.response.ResponseChunk;
 import com.example.Prompt;
 import com.example.rag.mainrag;
 
@@ -56,7 +54,6 @@ public class LLMJavaMainServlet extends HttpServlet {
         if (isRagSuccess) {
             // Once RAG processing is done, use the OllamaLLMClient to generate a real-time response
             OllamaLLMClient.generateResponseStream(prompt, response.getWriter());  // Stream directly to the client
-
         } else {
             // Handle the case where RAG processing failed
             response.getWriter().print("{\"status\": \"error\", \"message\": \"Failed to process the prompt through RAG system.\"}");
